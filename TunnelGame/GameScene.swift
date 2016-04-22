@@ -10,8 +10,13 @@ import SpriteKit
 
 class GameScene: SKScene {
     
+    // PhaseController is the heart of the game's progression and controls the parallax
     let phaseController = PhaseController()
+    // Used for determining the time elapsed in the update method
     var lastUpdateTimeInterval: CFTimeInterval = 0
+    // Keeps the everything on one node that can be scaled up and simply added to the scene
+    let scaledNode = SKNode()
+    // The player is the way the user interacts with the game
     let player = Player()
     
     //let layerDetailGenerator = LayerDetailGenerator()
@@ -39,11 +44,7 @@ class GameScene: SKScene {
         
         // Add the player to the staticLayer of Parallax
         phaseController.parallax.staticLayer.addChild(player.node)
-        
-//        //placeholder player
-//        let playerPlaceholder = SKShapeNode(rectOfSize: CGSizeMake(size.width / 14, size.width / 14))
-//        playerPlaceholder.position = CGPointMake(size.width / 2, 20)
-//        addChild(playerPlaceholder)
+        player.node.setScale(1.5)
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -52,7 +53,8 @@ class GameScene: SKScene {
         for touch in touches {
             let location = touch.locationInNode(self)
             
-            player.location = location
+            player.setNewTarget(location)
+            print("tap X: \(location.x) Y: \(location.y)")
         }
     }
     
@@ -62,7 +64,7 @@ class GameScene: SKScene {
         for touch in touches {
             let location = touch.locationInNode(self)
             
-            player.location = location
+            player.setNewTarget(location)
         }
     }
     
@@ -71,6 +73,9 @@ class GameScene: SKScene {
         /* Called by the update method with the delta of the current and previous time intervals*/
         
         phaseController.iterateFrame(elapsedTime, flyingSpeed: player.flyingSpeed)
+        if player.targetExists {
+            player.move(elapsedTime)
+        }
     }
     
     override func update(currentTime: CFTimeInterval) {

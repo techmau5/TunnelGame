@@ -30,14 +30,14 @@ class PhaseController {
         
         // Load a new phase set manually here (temp one is generated for testing)
         // This will act as the default starting phase set
-        // This may later be replaced by a saved phaseSet to load from plist
-        phaseSet = PhaseSet(exitCount: 3, baseSpeed: 0.5, battleDuration: 10)
+        // This may later be replaced by a saved phaseSet to load from storage
+        phaseSet = PhaseSet(exitCount: 3, baseSpeed: 0.5, actionDuration: 10)
         
         //parallax.phaseSpeed = phaseSet.phaseSpeed
         parallax.cycleLimit = phaseSet.startCycles
     }
     
-    // Load the next PhaseSet from the plist
+    // Request next PhaseSet from PhaseSetGenerator
     func loadNextPhaseSet() {
         
         // TEST CODE
@@ -75,11 +75,11 @@ class PhaseController {
             parallax.resetParallaxLayers()
             print("Enter First Mid Phase")
         case .MidPhase:
-            currentPhase = .BattlePhase
-            parallax.cycleLimit = phaseSet.battleCycles
+            currentPhase = .ActionPhase
+            parallax.cycleLimit = phaseSet.actionCycles
             parallax.resetParallaxLayers()
-            print("Next Battle Phase")
-        case .BattlePhase:
+            print("Next Action Phase")
+        case .ActionPhase:
             currentPhase = .ChoicePhase
             
             // TEST CODE - to be replaced with the exit choosing process
@@ -106,6 +106,6 @@ enum PhaseType {
     
     case StartPhase
     case MidPhase
-    case BattlePhase
+    case ActionPhase
     case ChoicePhase
 }
