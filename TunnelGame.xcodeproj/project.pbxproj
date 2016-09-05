@@ -8,10 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		EB32D9B61CA21D0B00594FD7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB32D9B51CA21D0B00594FD7 /* Player.swift */; };
+		EB46EEDD1CC9AE1000AA9EE0 /* PhaseSetGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB46EEDC1CC9AE1000AA9EE0 /* PhaseSetGenerator.swift */; };
+		EB46EEE11CC9E8C100AA9EE0 /* ActionPhaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB46EEE01CC9E8C100AA9EE0 /* ActionPhaseController.swift */; };
 		EB55E2411BC8306F00095EA4 /* PhaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB55E2401BC8306F00095EA4 /* PhaseController.swift */; };
 		EB55E2431BC8310D00095EA4 /* PhaseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB55E2421BC8310D00095EA4 /* PhaseSet.swift */; };
-		EB55E2451BC8316F00095EA4 /* Parallax.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB55E2441BC8316F00095EA4 /* Parallax.swift */; };
-		EBD87C5A1C6BC86900CE90B7 /* LayerGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD87C591C6BC86900CE90B7 /* LayerGenerator.swift */; };
+		EB6D4F391D2B6CCE00CAC85A /* Parallax.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6D4F381D2B6CCE00CAC85A /* Parallax.swift */; };
 		EBDE879A1BB5ADBB00F0615E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDE87991BB5ADBB00F0615E /* AppDelegate.swift */; };
 		EBDE879C1BB5ADBB00F0615E /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = EBDE879B1BB5ADBB00F0615E /* GameScene.sks */; };
 		EBDE879E1BB5ADBB00F0615E /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDE879D1BB5ADBB00F0615E /* GameScene.swift */; };
@@ -20,6 +21,7 @@
 		EBDE87A51BB5ADBB00F0615E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBDE87A41BB5ADBB00F0615E /* Assets.xcassets */; };
 		EBDE87B31BB5ADBC00F0615E /* TunnelGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDE87B21BB5ADBC00F0615E /* TunnelGameTests.swift */; };
 		EBDE87BE1BB5ADBC00F0615E /* TunnelGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDE87BD1BB5ADBC00F0615E /* TunnelGameUITests.swift */; };
+		EBE88BAC1D3DA7C5002451A2 /* DetailGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE88BAB1D3DA7C5002451A2 /* DetailGenerator.swift */; };
 		EBE9A1601C725F8200441BB5 /* test.atlas in Resources */ = {isa = PBXBuildFile; fileRef = EBE9A15F1C725F8200441BB5 /* test.atlas */; };
 /* End PBXBuildFile section */
 
@@ -42,10 +44,11 @@
 
 /* Begin PBXFileReference section */
 		EB32D9B51CA21D0B00594FD7 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		EB46EEDC1CC9AE1000AA9EE0 /* PhaseSetGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhaseSetGenerator.swift; sourceTree = "<group>"; };
+		EB46EEE01CC9E8C100AA9EE0 /* ActionPhaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionPhaseController.swift; sourceTree = "<group>"; };
 		EB55E2401BC8306F00095EA4 /* PhaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = PhaseController.swift; sourceTree = "<group>"; tabWidth = 4; wrapsLines = 1; };
 		EB55E2421BC8310D00095EA4 /* PhaseSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhaseSet.swift; sourceTree = "<group>"; };
-		EB55E2441BC8316F00095EA4 /* Parallax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parallax.swift; sourceTree = "<group>"; };
-		EBD87C591C6BC86900CE90B7 /* LayerGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayerGenerator.swift; sourceTree = "<group>"; };
+		EB6D4F381D2B6CCE00CAC85A /* Parallax.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parallax.swift; sourceTree = "<group>"; };
 		EBDE87961BB5ADBB00F0615E /* TunnelGame.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TunnelGame.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBDE87991BB5ADBB00F0615E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBDE879B1BB5ADBB00F0615E /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -60,6 +63,7 @@
 		EBDE87B91BB5ADBC00F0615E /* TunnelGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TunnelGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBDE87BD1BB5ADBC00F0615E /* TunnelGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelGameUITests.swift; sourceTree = "<group>"; };
 		EBDE87BF1BB5ADBC00F0615E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EBE88BAB1D3DA7C5002451A2 /* DetailGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailGenerator.swift; sourceTree = "<group>"; };
 		EBE9A15F1C725F8200441BB5 /* test.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = test.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,10 +120,12 @@
 				EBDE879F1BB5ADBB00F0615E /* GameViewController.swift */,
 				EBDE879D1BB5ADBB00F0615E /* GameScene.swift */,
 				EB32D9B51CA21D0B00594FD7 /* Player.swift */,
-				EB55E2421BC8310D00095EA4 /* PhaseSet.swift */,
 				EB55E2401BC8306F00095EA4 /* PhaseController.swift */,
-				EB55E2441BC8316F00095EA4 /* Parallax.swift */,
-				EBD87C591C6BC86900CE90B7 /* LayerGenerator.swift */,
+				EB55E2421BC8310D00095EA4 /* PhaseSet.swift */,
+				EB46EEDC1CC9AE1000AA9EE0 /* PhaseSetGenerator.swift */,
+				EB46EEE01CC9E8C100AA9EE0 /* ActionPhaseController.swift */,
+				EB6D4F381D2B6CCE00CAC85A /* Parallax.swift */,
+				EBE88BAB1D3DA7C5002451A2 /* DetailGenerator.swift */,
 				EBDE87A11BB5ADBB00F0615E /* Main.storyboard */,
 				EBE9A15F1C725F8200441BB5 /* test.atlas */,
 				EBDE87A41BB5ADBB00F0615E /* Assets.xcassets */,
@@ -280,14 +286,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB55E2451BC8316F00095EA4 /* Parallax.swift in Sources */,
 				EBDE879E1BB5ADBB00F0615E /* GameScene.swift in Sources */,
 				EB55E2411BC8306F00095EA4 /* PhaseController.swift in Sources */,
+				EBE88BAC1D3DA7C5002451A2 /* DetailGenerator.swift in Sources */,
 				EB55E2431BC8310D00095EA4 /* PhaseSet.swift in Sources */,
+				EB46EEE11CC9E8C100AA9EE0 /* ActionPhaseController.swift in Sources */,
 				EBDE87A01BB5ADBB00F0615E /* GameViewController.swift in Sources */,
 				EBDE879A1BB5ADBB00F0615E /* AppDelegate.swift in Sources */,
 				EB32D9B61CA21D0B00594FD7 /* Player.swift in Sources */,
-				EBD87C5A1C6BC86900CE90B7 /* LayerGenerator.swift in Sources */,
+				EB46EEDD1CC9AE1000AA9EE0 /* PhaseSetGenerator.swift in Sources */,
+				EB6D4F391D2B6CCE00CAC85A /* Parallax.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

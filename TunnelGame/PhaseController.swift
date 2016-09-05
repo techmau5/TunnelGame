@@ -17,9 +17,10 @@ class PhaseController {
     // The current phase of the game, updates the currentPhase var in LayerGenerator as well
     var currentPhase: PhaseType = .StartPhase {
         willSet {
-            LayerGenerator.currentPhase = newValue
+            //LayerGenerator.currentPhase = newValue
         }
     }
+    
     // The completed exit count keeps track of the phaseSet progress
     var completedExitCount = 0
     
@@ -44,15 +45,15 @@ class PhaseController {
         print("The PhaseSet has completed")
         
         // Set the phaseSet with the new PhaseSet parameter
-        // phaseSet = newSet
+        phaseSet = PhaseSetGenerator.generateNextPhaseSet(phaseSet)
         
-        // Add transition
+        // Cover screen with foreground
         
         // Reset the ParallaxController -> ParallaxLayer -> cycleNodes
         parallax.resetParallaxLayers()
         
         // Reset the player location
-        
+        // Reset other vars in player class
         
     }
     
@@ -70,15 +71,10 @@ class PhaseController {
         
         switch currentPhase {
         case .StartPhase:
-            currentPhase = .MidPhase
-            parallax.cycleLimit = phaseSet.midCycles
-            parallax.resetParallaxLayers()
-            print("Enter First Mid Phase")
-        case .MidPhase:
             currentPhase = .ActionPhase
             parallax.cycleLimit = phaseSet.actionCycles
             parallax.resetParallaxLayers()
-            print("Next Action Phase")
+            print("Enter Action Phase")
         case .ActionPhase:
             currentPhase = .ChoicePhase
             
@@ -90,10 +86,10 @@ class PhaseController {
             print("Choice Phase Begins")
         case .ChoicePhase:
             if completedExitCount < phaseSet.exitCount {
-                currentPhase = .MidPhase
-                parallax.cycleLimit = phaseSet.midCycles
+                currentPhase = .ActionPhase
+                parallax.cycleLimit = phaseSet.actionCycles
                 parallax.resetParallaxLayers()
-                print("Next Mid Phase")
+                print("Next Action Phase")
             } else {
                 loadNextPhaseSet()
             }
@@ -105,7 +101,6 @@ class PhaseController {
 enum PhaseType {
     
     case StartPhase
-    case MidPhase
     case ActionPhase
     case ChoicePhase
 }
