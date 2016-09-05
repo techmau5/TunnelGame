@@ -26,7 +26,7 @@ import SpriteKit
 // Details are generated on second thread here
 class DetailGenerator {
     
-    //internet test
+    
 }
 
 // Keeps track of where details can be placed on the piece by determining available space
