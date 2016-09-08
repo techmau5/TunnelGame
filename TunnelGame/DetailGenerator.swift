@@ -26,7 +26,16 @@ import SpriteKit
 // Details are generated on second thread here
 class DetailGenerator {
     
+    let region = Region()
     
+    func generateDetail(width: CGFloat, height: CGFloat) -> CGPoint {
+        
+        let size = CGSizeMake(width, height)
+        
+        let coordinate = region.getPlacementCoordinate(size)
+        
+        return coordinate
+    }
 }
 
 // Keeps track of where details can be placed on the piece by determining available space
@@ -66,7 +75,7 @@ class Region {
         var placementSR = 0
         for sr in 0..<subregions.count {
             if randomX < subregions[sr].width {
-                placementSR = sr + 1
+                placementSR = sr
                 break
             } else {
                 randomX -= subregions[sr].width
