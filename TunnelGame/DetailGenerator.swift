@@ -25,7 +25,6 @@ import SpriteKit
 
 // Details are generated on second thread here
 class DetailGenerator {
-    
     let region = Region()
     
     func generateDetail(width: CGFloat, height: CGFloat) -> CGPoint {
@@ -71,27 +70,29 @@ class Region {
         // Generate a random (x) value within the bounds of the Placement Subregions
         var randomX = Int(arc4random_uniform(UInt32(placementWidth + 1)))
         
-        // Determine which Subregion randomX corresponds with
-        var placementSR = 0
-        for sr in 0..<subregions.count {
-            if randomX < subregions[sr].width {
-                placementSR = sr
-                break
+        var sr = 0
+        for subregion in subregions {
+            if subregion.width >= Int(detailSize.width) {
+                if subregion.width - Int(detailSize.width) >= randomX || subregions.count == sr + 1 {
+                    break
+                } else {
+                    sr += 1
+                    randomX -= subregion.width - Int(detailSize.width)
+                }
             } else {
-                randomX -= subregions[sr].width
+                sr += 1
             }
         }
         
-        
         // Calculate the (x) coordinate
-        let xCoordinate = CGFloat(subregions[placementSR].leftBound + randomX)
+        let xCoordinate = CGFloat(subregions[sr].leftBound + randomX)
         
         // Caluclate the (y) coordinate
         let placementHeight = height - Int(detailSize.height)
         let yCoordinate = CGFloat(Int(arc4random_uniform(UInt32(placementHeight + 1))))
         
         // Split the subregion detail was placed into
-        splitSubregion(placementSR, xPosition: xCoordinate, detailWidth: detailSize.width)
+        splitSubregion(sr, xPosition: xCoordinate, detailWidth: detailSize.width)
         
         // Return the random coordinate to DetailGenerator
         return CGPointMake(xCoordinate, yCoordinate)
@@ -106,8 +107,12 @@ class Region {
         let rightHalf = Subregion.init(leftX: Int(xPosition) + Int(detailWidth), rightX: endX)
         
         subregions.removeAtIndex(srPosition)
-        subregions.insert(leftHalf, atIndex: srPosition)
-        subregions.insert(rightHalf, atIndex: srPosition + 1)
+        if leftHalf.width > 3 {
+            subregions.append(leftHalf)
+        }
+        if rightHalf.width > 3 {
+            subregions.append(rightHalf)
+        }
     }
 }
 

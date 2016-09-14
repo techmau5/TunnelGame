@@ -45,6 +45,12 @@ class GameScene: SKScene {
         // Add the player to the staticLayer of Parallax
         phaseController.parallax.staticLayer.addChild(player.node)
         player.node.setScale(1.5)
+        
+        let generator = DetailGenerator()
+        
+        print(generator.generateDetail(10, height: 10))
+        print(generator.generateDetail(15, height: 10))
+        print(generator.generateDetail(20, height: 10))
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
