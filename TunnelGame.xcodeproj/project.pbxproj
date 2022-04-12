@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EB09A3F91DAED297008482A9 /* GameplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB09A3F81DAED297008482A9 /* GameplayController.swift */; };
 		EB32D9B61CA21D0B00594FD7 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB32D9B51CA21D0B00594FD7 /* Player.swift */; };
 		EB46EEDD1CC9AE1000AA9EE0 /* PhaseSetGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB46EEDC1CC9AE1000AA9EE0 /* PhaseSetGenerator.swift */; };
 		EB46EEE11CC9E8C100AA9EE0 /* ActionPhaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB46EEE01CC9E8C100AA9EE0 /* ActionPhaseController.swift */; };
@@ -21,8 +22,8 @@
 		EBDE87A51BB5ADBB00F0615E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBDE87A41BB5ADBB00F0615E /* Assets.xcassets */; };
 		EBDE87B31BB5ADBC00F0615E /* TunnelGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDE87B21BB5ADBC00F0615E /* TunnelGameTests.swift */; };
 		EBDE87BE1BB5ADBC00F0615E /* TunnelGameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDE87BD1BB5ADBC00F0615E /* TunnelGameUITests.swift */; };
-		EBE88BAC1D3DA7C5002451A2 /* DetailGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE88BAB1D3DA7C5002451A2 /* DetailGenerator.swift */; };
-		EBE9A1601C725F8200441BB5 /* test.atlas in Resources */ = {isa = PBXBuildFile; fileRef = EBE9A15F1C725F8200441BB5 /* test.atlas */; };
+		EBE88BAC1D3DA7C5002451A2 /* ContentGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE88BAB1D3DA7C5002451A2 /* ContentGenerator.swift */; };
+		EBE9A1601C725F8200441BB5 /* Content.atlas in Resources */ = {isa = PBXBuildFile; fileRef = EBE9A15F1C725F8200441BB5 /* Content.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB09A3F81DAED297008482A9 /* GameplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameplayController.swift; sourceTree = "<group>"; };
 		EB32D9B51CA21D0B00594FD7 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		EB46EEDC1CC9AE1000AA9EE0 /* PhaseSetGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhaseSetGenerator.swift; sourceTree = "<group>"; };
 		EB46EEE01CC9E8C100AA9EE0 /* ActionPhaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionPhaseController.swift; sourceTree = "<group>"; };
@@ -63,8 +65,8 @@
 		EBDE87B91BB5ADBC00F0615E /* TunnelGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TunnelGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBDE87BD1BB5ADBC00F0615E /* TunnelGameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TunnelGameUITests.swift; sourceTree = "<group>"; };
 		EBDE87BF1BB5ADBC00F0615E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EBE88BAB1D3DA7C5002451A2 /* DetailGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailGenerator.swift; sourceTree = "<group>"; };
-		EBE9A15F1C725F8200441BB5 /* test.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = test.atlas; sourceTree = "<group>"; };
+		EBE88BAB1D3DA7C5002451A2 /* ContentGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentGenerator.swift; sourceTree = "<group>"; };
+		EBE9A15F1C725F8200441BB5 /* Content.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Content.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,9 +127,10 @@
 				EB46EEDC1CC9AE1000AA9EE0 /* PhaseSetGenerator.swift */,
 				EB46EEE01CC9E8C100AA9EE0 /* ActionPhaseController.swift */,
 				EB6D4F381D2B6CCE00CAC85A /* Parallax.swift */,
-				EBE88BAB1D3DA7C5002451A2 /* DetailGenerator.swift */,
+				EBE88BAB1D3DA7C5002451A2 /* ContentGenerator.swift */,
+				EB09A3F81DAED297008482A9 /* GameplayController.swift */,
 				EBDE87A11BB5ADBB00F0615E /* Main.storyboard */,
-				EBE9A15F1C725F8200441BB5 /* test.atlas */,
+				EBE9A15F1C725F8200441BB5 /* Content.atlas */,
 				EBDE87A41BB5ADBB00F0615E /* Assets.xcassets */,
 				EBDE87A91BB5ADBB00F0615E /* Info.plist */,
 			);
@@ -214,21 +217,24 @@
 		EBDE878E1BB5ADBB00F0615E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Adrian Siwy";
 				TargetAttributes = {
 					EBDE87951BB5ADBB00F0615E = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = RUPP3498EQ;
+						LastSwiftMigration = 0800;
 					};
 					EBDE87AD1BB5ADBC00F0615E = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = QM573DEA9W;
+						LastSwiftMigration = 0800;
 						TestTargetID = EBDE87951BB5ADBB00F0615E;
 					};
 					EBDE87B81BB5ADBC00F0615E = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = QM573DEA9W;
+						LastSwiftMigration = 0800;
 						TestTargetID = EBDE87951BB5ADBB00F0615E;
 					};
 				};
@@ -259,7 +265,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBDE879C1BB5ADBB00F0615E /* GameScene.sks in Resources */,
-				EBE9A1601C725F8200441BB5 /* test.atlas in Resources */,
+				EBE9A1601C725F8200441BB5 /* Content.atlas in Resources */,
 				EBDE87A51BB5ADBB00F0615E /* Assets.xcassets in Resources */,
 				EBDE87A31BB5ADBB00F0615E /* Main.storyboard in Resources */,
 			);
@@ -288,13 +294,14 @@
 			files = (
 				EBDE879E1BB5ADBB00F0615E /* GameScene.swift in Sources */,
 				EB55E2411BC8306F00095EA4 /* PhaseController.swift in Sources */,
-				EBE88BAC1D3DA7C5002451A2 /* DetailGenerator.swift in Sources */,
+				EBE88BAC1D3DA7C5002451A2 /* ContentGenerator.swift in Sources */,
 				EB55E2431BC8310D00095EA4 /* PhaseSet.swift in Sources */,
 				EB46EEE11CC9E8C100AA9EE0 /* ActionPhaseController.swift in Sources */,
 				EBDE87A01BB5ADBB00F0615E /* GameViewController.swift in Sources */,
 				EBDE879A1BB5ADBB00F0615E /* AppDelegate.swift in Sources */,
 				EB32D9B61CA21D0B00594FD7 /* Player.swift in Sources */,
 				EB46EEDD1CC9AE1000AA9EE0 /* PhaseSetGenerator.swift in Sources */,
+				EB09A3F91DAED297008482A9 /* GameplayController.swift in Sources */,
 				EB6D4F391D2B6CCE00CAC85A /* Parallax.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -355,8 +362,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -399,8 +408,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -419,6 +430,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -435,6 +447,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adriansiwy.TunnelGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -450,6 +463,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.adriansiwy.TunnelGame;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -462,6 +476,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adriansiwy.TunnelGameTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TunnelGame.app/TunnelGame";
 			};
 			name = Debug;
@@ -474,6 +489,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adriansiwy.TunnelGameTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TunnelGame.app/TunnelGame";
 			};
 			name = Release;
@@ -486,6 +502,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adriansiwy.TunnelGameUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = TunnelGame;
 				USES_XCTRUNNER = YES;
 			};
@@ -498,6 +515,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.adriansiwy.TunnelGameUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = TunnelGame;
 				USES_XCTRUNNER = YES;
 			};

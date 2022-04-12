@@ -10,14 +10,14 @@ import SpriteKit
 
 class Parallax: SKNode {
     
-    static let screenHeight = UIScreen.mainScreen().applicationFrame.height
+    static let screenHeight = UIScreen.main.applicationFrame.height
     static var piecesOnScreen = 4
     var cycleLimit = 10 // <- must be even to ensure that the nodes will all be alligned
     var cycleCount = 0
     var currentCycleCount = 0
-    let bgLayer = ParallaxLayer(type: .BackgroundLayer)
-    let mainLayer = MainParallaxLayer(type: .MainLayer)
-    let fgLayer = ParallaxLayer(type: .ForegroundLayer)
+    let bgLayer = ParallaxLayer(type: .backgroundLayer)
+    let mainLayer = MainParallaxLayer(type: .mainLayer)
+    let fgLayer = ParallaxLayer(type: .foregroundLayer)
     let staticLayer = SKNode() // <- moves upward when the moving layers deccelerate
     
     // Set the layer Z positions
@@ -54,7 +54,7 @@ class Parallax: SKNode {
     }
     
     // Moves each layer based on the elapsedTime
-    func continueCycle(elapsedTime: CFTimeInterval, playerSpeed: Double) -> Bool {
+    func continueCycle(_ elapsedTime: CFTimeInterval, playerSpeed: Double) -> Bool {
         
         // The travelDistance is calculated using the timeElapsed the height of one cycle (screen height) and the currentPhaseSpeed (number of cycles per second)
         let travelDistance: CGFloat = CGFloat(Double(Parallax.screenHeight) * elapsedTime) * CGFloat(playerSpeed)
@@ -96,7 +96,7 @@ class ParallaxLayer: SKNode {
     
     // Generate the DetailPieces to put into the array
     // Give them a location and populate them
-    private func generateDetailPieces() {
+    fileprivate func generateDetailPieces() {
         
         for i in 0..<(Parallax.piecesOnScreen + 2) {
             let newPosition = Parallax.screenHeight * CGFloat(0.25 * Double(i))
@@ -104,6 +104,7 @@ class ParallaxLayer: SKNode {
             detailPieceArray.append(newPiece)
             addChild(newPiece.contentNode)
             // Request Initial Nodes from DetailGenerator
+            newPiece.requestNewContent()
         }
     }
     
@@ -115,7 +116,7 @@ class ParallaxLayer: SKNode {
     }
     
     // Move the pieces based on the distance given, if a piece was moved to the top, return true
-    func moveLayers(distance: CGFloat) -> Bool {
+    func moveLayers(_ distance: CGFloat) -> Bool {
         
         var wasMovedToTop = false
         
@@ -126,8 +127,8 @@ class ParallaxLayer: SKNode {
             if piece.yPosition <= -0.25 * Parallax.screenHeight {
                 piece.yPosition += 1.5 * Parallax.screenHeight
                 wasMovedToTop = true
-                // Request the DetailGenerator to populate the Piece
-                piece.requestNewNodes()
+                // Request the ContentGenerator to populate the Piece
+                piece.requestNewContent()
             }
         }
         
@@ -136,7 +137,7 @@ class ParallaxLayer: SKNode {
     
     //required code, won't be used
     required init?(coder aDecoder: NSCoder) {
-        layerType = .NullLayer
+        layerType = .nullLayer
         super.init(coder: aDecoder)
     }
 }
@@ -162,6 +163,8 @@ class MainParallaxLayer: ParallaxLayer {
             detailPieceArray.append(newPiece)
             addChild(newPiece.contentNode)
             bgMaskNode.addChild(newPiece.maskNode)
+            //request new content
+            
         }
     }
     
@@ -173,7 +176,7 @@ class MainParallaxLayer: ParallaxLayer {
 // DetailPieces make up the detail on the layers
 class DetailPiece {
     
-    let contentNode = SKNode()
+    var contentNode = SKNode()
     var yPosition: CGFloat {
         set {
             contentNode.position.y = newValue
@@ -187,7 +190,12 @@ class DetailPiece {
         self.yPosition = yPosition
     }
     
-    func requestNewNodes() {
+    func requestNewContent() {
+        contentNode.removeAllChildren()
+        let newContent = ContentGenerator.generateLayerContent().node
+        //scale it correctly for the device screen size
+        newContent.setScale(Parallax.screenHeight/160)
+        contentNode.addChild(newContent)
         
     }
 }
@@ -204,12 +212,20 @@ class MaskedDetailPiece: DetailPiece {
             return contentNode.position.y
         }
     }
+    
+    override func requestNewContent() {
+        contentNode.removeAllChildren()
+        let newContent = ContentGenerator.generateMainLayerContent().node
+        //scale it correctly for the device screen size
+        newContent.setScale(Parallax.screenHeight/160)
+        contentNode.addChild(newContent)
+    }
 }
 
 enum LayerType {
     
-    case BackgroundLayer
-    case MainLayer
-    case ForegroundLayer
-    case NullLayer
+    case backgroundLayer
+    case mainLayer
+    case foregroundLayer
+    case nullLayer
 }

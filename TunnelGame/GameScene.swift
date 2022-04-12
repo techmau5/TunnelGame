@@ -34,7 +34,7 @@ class GameScene: SKScene {
 //        super.init(coder: aDecoder)
 //    }
     
-    override func didMoveToView(view: SKView) {
+    override func didMove(to view: SKView) {
         
         // Set the scene size to the view size (make game window same as view window)
         size = view.frame.size
@@ -45,37 +45,31 @@ class GameScene: SKScene {
         // Add the player to the staticLayer of Parallax
         phaseController.parallax.staticLayer.addChild(player.node)
         player.node.setScale(1.5)
-        
-        let generator = DetailGenerator()
-        
-        print(generator.generateDetail(10, height: 10))
-        print(generator.generateDetail(15, height: 10))
-        print(generator.generateDetail(20, height: 10))
     }
     
-    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
        /* Called when a touch begins */
         
         for touch in touches {
-            let location = touch.locationInNode(self)
+            let location = touch.location(in: self)
             
             player.setNewTarget(location)
             print("tap X: \(location.x) Y: \(location.y)")
         }
     }
     
-    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         /* Called when a touch is moved */
         
         for touch in touches {
-            let location = touch.locationInNode(self)
+            let location = touch.location(in: self)
             
             player.setNewTarget(location)
         }
     }
     
     // Keeps the scene syncronized
-    func updateWithTimeSinceLastUpdate(elapsedTime: CFTimeInterval) {
+    func updateWithTimeSinceLastUpdate(_ elapsedTime: CFTimeInterval) {
         /* Called by the update method with the delta of the current and previous time intervals*/
         
         phaseController.iterateFrame(elapsedTime, flyingSpeed: player.flyingSpeed)
@@ -84,7 +78,7 @@ class GameScene: SKScene {
         }
     }
     
-    override func update(currentTime: CFTimeInterval) {
+    override func update(_ currentTime: TimeInterval) {
         /* Called before each frame is rendered */
         
         // Find the elapsedTime and set the lastUpdateTimeInterval to the current time interval

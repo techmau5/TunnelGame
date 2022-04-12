@@ -15,7 +15,7 @@ class PhaseController {
     // The PhaseSet defines the current phase constraints
     var phaseSet: PhaseSet
     // The current phase of the game, updates the currentPhase var in LayerGenerator as well
-    var currentPhase: PhaseType = .StartPhase {
+    var currentPhase: PhaseType = .startPhase {
         willSet {
             //LayerGenerator.currentPhase = newValue
         }
@@ -45,12 +45,12 @@ class PhaseController {
         print("The PhaseSet has completed")
         
         // Set the phaseSet with the new PhaseSet parameter
-        phaseSet = PhaseSetGenerator.generateNextPhaseSet(phaseSet)
+        //phaseSet = PhaseSetGenerator.generateNextPhaseSet(phaseSet)
         
         // Cover screen with foreground
         
         // Reset the ParallaxController -> ParallaxLayer -> cycleNodes
-        parallax.resetParallaxLayers()
+        //parallax.resetParallaxLayers()
         
         // Reset the player location
         // Reset other vars in player class
@@ -58,7 +58,7 @@ class PhaseController {
     }
     
     // This method is called by the GameScene and performs actions specific to the current phase
-    func iterateFrame(elapsedTime: CFTimeInterval, flyingSpeed: Double) {
+    func iterateFrame(_ elapsedTime: CFTimeInterval, flyingSpeed: Double) {
         
         // The method iterates the parallax and determines if the Phase should be switched
         // Player speed is the flyingSpeed of the player added to the baseSpeed
@@ -70,13 +70,13 @@ class PhaseController {
     func switchToNextPhase() {
         
         switch currentPhase {
-        case .StartPhase:
-            currentPhase = .ActionPhase
+        case .startPhase:
+            currentPhase = .actionPhase
             parallax.cycleLimit = phaseSet.actionCycles
             parallax.resetParallaxLayers()
             print("Enter Action Phase")
-        case .ActionPhase:
-            currentPhase = .ChoicePhase
+        case .actionPhase:
+            currentPhase = .choicePhase
             
             // TEST CODE - to be replaced with the exit choosing process
             parallax.cycleLimit = 2
@@ -84,9 +84,9 @@ class PhaseController {
             //the scrolling should ease to a stop and the player should ease to the top of the screen (momentum is transfered)
             completedExitCount += 1
             print("Choice Phase Begins")
-        case .ChoicePhase:
+        case .choicePhase:
             if completedExitCount < phaseSet.exitCount {
-                currentPhase = .ActionPhase
+                currentPhase = .actionPhase
                 parallax.cycleLimit = phaseSet.actionCycles
                 parallax.resetParallaxLayers()
                 print("Next Action Phase")
@@ -100,7 +100,7 @@ class PhaseController {
 // Phase Enumeration
 enum PhaseType {
     
-    case StartPhase
-    case ActionPhase
-    case ChoicePhase
+    case startPhase
+    case actionPhase
+    case choicePhase
 }

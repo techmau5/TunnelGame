@@ -11,7 +11,7 @@ import SpriteKit
 class PhaseSetGenerator {
     
     // Generate new PhaseSet by accepting old phase set as param and altering it
-    class func generateNextPhaseSet(phaseSet: PhaseSet) -> PhaseSet {
+    class func generateNextPhaseSet(_ phaseSet: PhaseSet) -> PhaseSet {
         // Alter the previous set and return the new set
         
         return phaseSet

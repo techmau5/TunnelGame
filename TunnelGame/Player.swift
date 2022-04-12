@@ -41,9 +41,9 @@ class Player {
     var targetExists = false
     var targetAngle: Double = 0
     var atTargetAngle = false
-    var targetLocation: CGPoint = CGPointMake(0, 0)
+    var targetLocation: CGPoint = CGPoint(x: 0, y: 0)
     
-    func move(elapsedTime: CFTimeInterval) {
+    func move(_ elapsedTime: CFTimeInterval) {
         
         // Accelerate the velocity if it is lower than the MAX_VELOCITY
         if velocity < MAX_VELOCITY {
@@ -71,7 +71,7 @@ class Player {
         let dy = CGFloat(displacement * sin(angle))
         
         // Move the player
-        currentLocation = CGPointMake(currentLocation.x + dx, currentLocation.y + dy)
+        currentLocation = CGPoint(x: currentLocation.x + dx, y: currentLocation.y + dy)
         
         // Check to see if the player is at the target position; stop the player if so
         if (abs(targetLocation.x - currentLocation.x) < 2 && abs(targetLocation.y - currentLocation.y) < 2) {
@@ -82,7 +82,7 @@ class Player {
         }
     }
     
-    func getNewAngle(elapsedTime: CFTimeInterval) -> Double {
+    func getNewAngle(_ elapsedTime: CFTimeInterval) -> Double {
         
         // Determine if the angle is already the targetAngle; if not, apply the angularVelocity
         var newAngle: Double
@@ -109,7 +109,7 @@ class Player {
         return newAngle
     }
     
-    func setNewTarget(location: CGPoint) {
+    func setNewTarget(_ location: CGPoint) {
         
         // Set the position of the target to the touch location
         targetLocation = location
